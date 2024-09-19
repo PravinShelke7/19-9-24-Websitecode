@@ -1,0 +1,282 @@
+<%@ Master Language="VB" CodeFile="MContract.master.vb" Inherits="Masters_MContract" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/SkinFile/E1Print.css" rel="stylesheet" type="text/css"
+        media="print" />
+     <script src="https://www.savvypack.com/JavaScripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="https://www.savvypack.com/JavaScripts/SpecialCharacters.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var txtarray = document.getElementsByTagName("input");
+            var flag;
+            if (txtarray.length != 0) {
+                for (var i = 0; i < txtarray.length; i++) {
+                    if (txtarray[i].type == "text") {
+                        var id = txtarray[i].id;
+                        $('#' + id).change(function () {
+                            CheckSP();
+                        });
+                    }
+                }
+            }
+
+            //To check Multiline Textbox
+            var txtMularray = document.getElementsByTagName("textarea");
+            if (txtMularray.length != 0) {
+                for (var i = 0; i < txtMularray.length; i++) {
+                    if (txtMularray[i].type == "textarea") {
+                        var idMul = txtMularray[i].id;
+                        $('#' + idMul).change(function () {
+                            CheckSPMul("500");
+                        });
+                    }
+                }
+            }
+        });               
+    </script>
+    <script type="text/javascript">
+        javascript: window.history.forward(1);
+        function FeedBack() {
+
+
+            var daReferrer = document.referrer;
+            var email = "sam@allied-dev.com";
+            var errorMsg = "here here here is the error error error error";
+            var subject = "Feedback On SavvyPack System";
+            var CC = "emm@allied-dev.com"
+
+            var mailto_link = 'mailto:' + email + '?subject=' + subject + '&CC=' + CC;
+
+            win = window.open(mailto_link, 'emailWindow');
+            if (win && win.open && !win.closed) win.close();
+
+            return false;
+
+        }
+        function Notes(Page) {
+            //window.open('ItemSearch.aspx', 'ItemSearch', 'status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=400,width=600');  
+            var width = 550;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=no';
+            params += ', menubar=no';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=no';
+            URL = "../Notes/Notes.aspx?ACODE=" + Page + ""
+            newwin = window.open(URL, 'Notes', params);
+            return false
+
+        }
+
+        function Chart(Page, Title) {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page
+            newwin = window.open(URL, Title, params);
+            return false
+
+        }
+
+
+        function Wizard(Page) {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+
+        function Help() {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = "../help/SavvyPackInstructions1.htm"
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+
+        function Compare(Page) {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page;
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+
+        function clickButton(e, buttonid) {
+            var evt = e ? e : window.event;
+            var bt = document.getElementById(buttonid);
+            if (bt) {
+                if (evt.keyCode == 13) {
+                    bt.click();
+                    return false;
+                }
+            }
+        }
+        function SelectAllCheckboxes(spanChk) {
+
+            var oItem = spanChk.children;
+            var theBox = (spanChk.type == "checkbox") ?
+
+       spanChk : spanChk.children.item[0];
+            xState = theBox.checked;
+            elm = theBox.form.elements;
+            for (i = 0; i < elm.length; i++) {
+                if (elm[i].type == "checkbox" && elm[i].id != theBox.id) {
+                    if (elm[i].checked != xState)
+                        elm[i].click();
+                }
+            }
+        } 
+         
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-16991293-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+'.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body style="margin-top: 0px;">
+    <%-- <center>--%>
+    <form id="form1" runat="server">
+    <center>
+        <div id="MasterContent">
+            <div id="AlliedLogo">
+                <table>
+                    <tr>
+                        <td class="PageSHeading" align="center">
+                            <table style="width: 845px; background-color: #edf0f4;">
+                                <tr>
+                                    <td align="left">
+                                        <asp:Image ID="imgFoot" runat="server" ImageUrl="~/Images/SavvyPackLogoB.gif" Height="45px" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="ContModule" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+                    <tr>
+                        <td style="padding-left: 375px" align="center">
+                            <table cellpadding="0" cellspacing="5" style="border-collapse: collapse">
+                                <tr>
+                                    <td>
+                                        <asp:ImageButton ID="imgUpdate" ImageAlign="Middle" ImageUrl="~/Images/SubmittChanges.gif"
+                                            runat="server" ToolTip="Update" Visible="false" />
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgClose" ImageAlign="Middle" ImageUrl="~/Images/UpdateandReturn.gif"
+                                            runat="server" ToolTip="Submit & Return to Profile Page" Visible="false" />
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgLogoff" ImageAlign="Middle" ImageUrl="~/Images/LogOff.gif"
+                                            runat="server" ToolTip="Log Off" Visible="false" PostBackUrl="~/Universal_loginN/Pages/ULogOff.aspx?Type=MContract" />
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgInstructions" ImageAlign="Middle" ImageUrl="~/Images/Instruction.gif"
+                                            runat="server" ToolTip="Instructions" Visible="false" OnClientClick="return Help();" />
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="error">
+                <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+            </div>
+        </div>
+        <table class="ContentPage" id="Table1" runat="server">
+            <tr>
+                <td>
+                    <div id="ContentPagemargin" runat="server">
+                        <div id="PageSection1" style="text-align: left;">
+                            <div>
+                                <table id="ContentPage" runat="server">
+                                    <tr style="height: 20px">
+                                        <td>
+                                            <asp:ContentPlaceHolder ID="ContractContentPlaceHolder" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </td>
+                                    </tr>
+                                    <tr class="AlterNateColor3">
+                                        <td class="PageSHeading" align="center">
+                                            <asp:Label ID="lblTag" runat="Server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+    </form>
+</body>
+</html>

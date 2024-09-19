@@ -1,0 +1,335 @@
+<%@ Master Language="VB" CodeFile="AlliedMasterM.master.vb" Inherits="Masters_AlliedMasterM" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Untitled Page</title>
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+    <%-- <meta name="Keywords" content="packaging, packaging industry, packaging information, packaging research, packaging consulting, packaging publications, market research, market analysis, market studies, economic analysis, retort pouches, pharmaceutical packaging,  microwaveable packaging, stand-up pouches, stick pouches, stick packs, flexible packaging, barrier films, barrier packaging, glass-coating, glass-coated films, savvypack, packaging studies, medical device packaging, oriented films, bi-oriented films, transparent oxide-coated films, SiOx-coated films, AlOx-coated films, flexible lidstock, lidstock, foodservice, lids, LCA, LCI data, Life Cycle Analysis, LCI tool, sustainability, sustainable packaging, environmental studies, environment, environmental analysis, packaging analysis, flexible lidstock, U.S. foodservice, foodservice market" />--%>
+    <style type="text/css">
+        .ChatImage
+        {
+            background-color: #84A638;
+            height: 16px;
+            background-repeat: no-repeat;
+            text-align: center;
+            vertical-align: middle;
+        }
+		   .IEpblm
+{
+	z-index:100;
+}
+.MainMasterContentNEW
+{
+    width:950px;
+    background-color:#f2f3f3;
+    color:#5e96cb;
+}
+    </style>
+
+
+
+</head>
+<body>
+    <script src='<%= HttpRuntime.AppDomainAppVirtualPath %>/JavaScripts/jquery-latest.pack.js'
+        type="text/javascript"></script>
+    <script src='<%= HttpRuntime.AppDomainAppVirtualPath %>/JavaScripts/jcarousellite_1.0.1c4.js'
+        type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".newsticker-jcarousellite").jCarouselLite({
+                vertical: true,
+                hoverPause: true,
+                visible: 4,
+                auto: 500,
+                speed: 1000
+            });
+        });
+    </script>
+    <script type="text/javascript" language="javascript">
+        function functionNone() {
+            return false;
+        }
+        function OpenLoginPopup() {
+
+            var userId = '<%=Session("UserId")%>';
+            var LoginPath = document.getElementById('<%=hdnUserLoginPath.ClientId %>');
+
+            if (userId != "") {
+                return true;
+            }
+            else {
+                ShowPopWindowLog(LoginPath.value);
+                return false;
+            }
+        }
+        function ShowPopWindowLog(Page) {
+            //window.open('ItemSearch.aspx', 'ItemSearch', 'status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=400,width=600');  
+            var width = 700;
+            var height = 300;
+
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=no';
+            params += ', menubar=no';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=no';
+            newwin = window.open(Page, 'Chat', params);
+            //            if (newwin == null || typeof (newwin) == "undefined") {
+            //                alert("Pop-ups are being blocked. Please add www.allied-dev.com to your trusted sites and disable pop-up blocking.");
+            //            }
+
+            return false;
+        }
+
+        function OpenSavvypack() {
+
+            var userId = '<%=Session("UserId")%>';
+
+            //var LoginPath = document.getElementById('<%=hdnUserLoginPath.ClientId %>');
+            //alert(LoginPath.value);
+            // alert(userId);
+            if (userId != "") {
+                window.open('OnlineForm/ProjectManager.aspx');
+                return false;
+            }
+            else {
+                ShowPopWindowLog('Users_Login/LoginS.aspx?Savvy=Y');
+                //ShowPopWindow(LoginPath.value);
+                return false;
+            }
+        }
+        
+       
+    </script>
+    <form id="form1" runat="server">
+    <center>
+         <div id="MainMasterContentNEW" class="MainMasterContentNEW">
+            <table style="border-collapse: collapse;" cellpadding="0" cellspacing="0" width="100%;">
+                <tr>
+                    <td align="left">
+                        <div class="IndexModule">
+                            <div style="text-align: left; vertical-align: middle">
+                                <table cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="padding-left: 230px;">
+                                            <div id="chatSev" runat="server" class="ChatImage" style="font-size: 12px; font-weight: bold;
+                                                color: #F5F7FF; width: 175px; font-family: Arial; margin-top: 10px; text-align: center">
+                                                <!--Chat button will appear here-->
+                                                <div id="MyLiveChatContainer">
+                                                </div>
+                                                <!--Add the following script at the bottom of the web page (before </body></html>)-->
+                                                <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatlink.aspx?hccid=24687734"></script>
+                                            </div>
+                                        </td>
+                                        <td style="padding-left:60px;">
+                                            <%--  <td style="padding-left: 420px;">--%>
+                                            <asp:Menu ID="AlliedMenu" runat="server" Orientation="Horizontal" ScrollDownText=""
+                                                Style="font-size: 13px; font-family: optima; text-align: left" StaticEnableDefaultPopOutImage="false"
+                                                Font-Names="optima" Font-Size="13px" Font-Bold="true" ForeColor="#284E98" StaticSubMenuIndent="10px">
+                                                <StaticMenuItemStyle HorizontalPadding="3px" VerticalPadding="2px" />
+                                                <DynamicHoverStyle CssClass="MasterPage" BackColor="#284E98" ForeColor="White" />
+                                                <DynamicMenuStyle BackColor="#F1F1F2" CssClass="IEpblm" />
+                                                <DynamicSelectedStyle />
+                                                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" BackColor="#F1F1F2"
+                                                    BorderColor="Black" />
+                                                <StaticHoverStyle CssClass="MasterPage" BackColor="#284E98" ForeColor="White" />
+                                                <Items>
+                                                    <asp:MenuItem Text="Home" Value="HM" NavigateUrl="~/Index.aspx" SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="Products & Services" Value="PRDCTSER" SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                        <asp:MenuItem Text="Consulting" Value="CONSULT"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Publications" Value="MCB"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Interactive Services" Value="ISERVICE"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Package Design (Structural)" Value="PDESIGN"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Application Development" Value="APPDEV"></asp:MenuItem>
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="Web Conference" Value="WEBCONF" SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                        <asp:MenuItem Text="Join Conference" Value="JWEBCONF"></asp:MenuItem>
+                                                        <asp:MenuItem Text="Register for a Conference" Value="RWEBCONF"></asp:MenuItem>
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="" ImageUrl="~/Images/S200_1.png" Value="ACNT" SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="" Value="SAVVYPACK" ImageUrl="~/Images/S123.png"></asp:MenuItem>
+                                                </Items>
+                                            </asp:Menu>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <%--    <td style="padding-left: 600px;" >--%>
+                                        <td style="padding-left: 660px;" colspan="2">
+                                            <asp:Menu ID="AlliedMenu2" runat="server" Orientation="Horizontal" ScrollDownText=""
+                                                Style="font-size: 13px; font-family: optima; text-align: left" Font-Names="optima"
+                                                Font-Size="13px" Font-Bold="true" ForeColor="#284E98" StaticSubMenuIndent="10px">
+                                                <StaticMenuItemStyle HorizontalPadding="3px" VerticalPadding="2px" />
+                                                <DynamicHoverStyle CssClass="MasterPage" BackColor="#284E98" ForeColor="White" />
+                                                <DynamicMenuStyle CssClass="IEpblm" />
+                                                <DynamicSelectedStyle />
+                                                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" BackColor="#F1F1F2"
+                                                    BorderColor="Black" />
+                                                <StaticHoverStyle CssClass="MasterPage" BackColor="#284E98" ForeColor="White" />
+                                                <Items>
+                                                    <asp:MenuItem Text="" Value="DWNLD" ImageUrl="~/Images/S201_3.png"  SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="About Us" Value="ABTUS" SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="Contact Us" Value="CNCTUS" SeparatorImageUrl="~/Images/Menustrip.gif">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="" Value="SHOPPING" ImageUrl="~/Images/S202_1.png" NavigateUrl="~/ShoppingCart/OrderReview.aspx"
+                                                        Target="_balnk"></asp:MenuItem>
+                                                </Items>
+                                            </asp:Menu>
+                                        </td>
+                                    </tr>
+                                    <tr id="truser" runat="server">
+                                        <%-- <td style="width: 100%; margin-right: 5px;" align="right" valign="top" >--%>
+                                        <td style="width: 100%; margin-right: 5px;" align="right" valign="top" colspan="2">
+                                            <table>
+                                                <tr>
+                                                    <td valign="bottom" style="width: 95%" colspan="2">
+                                                        <asp:Label ID="lblUserMess" runat="server" Style="color: Black; font-family: Verdana;
+                                                            font-size: 11px;">
+                                                                         
+                                                        </asp:Label>
+                                                        <asp:LinkButton ID="lnkLogout" runat="server" CssClass="LinkLog" Style="margin-left: 3px;
+                                                            margin-right: 5px; text-decoration: none; font-family: Verdana; font-size: 11px;
+                                                            font-weight: bold;"></asp:LinkButton>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr style="height: 85px; vertical-align: middle;">
+                    <td class="tdmlg3" align="right" colspan="2">
+                        <div style="margin-left: 590px;">
+                            <asp:Image ID="imgtext" runat="server" ImageUrl="~/Images/PackagingInt.gif" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: left">
+                <table cellpadding="0" cellspacing="0" width="950px;">
+                    <tr>
+                        <td style="width: 176px; background-color: #dae5f5" valign="top" align="left">
+                            <table>
+                                <tr>
+                                    <td valign="top" style="margin-top: 5px">
+                                        <asp:Table ID="tblSponsor" runat="server" Style="width: 176px; height: 10px; vertical-align: top">
+                                        </asp:Table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top">
+                                        <asp:Table ID="tblFlagSponsor" runat="server">
+                                        </asp:Table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <td valign="top" style="margin-top: 0px; padding-bottom: 0px">
+                                        <div id="IsBSManage" runat="server" visible="false">
+                                            <span style='color: Maroon; font-weight: bold'>NEW - </span>
+                                            <asp:HyperLink ID="lnkNewSA" runat="server" Style="font-size: 15px; font-weight: bold;
+                                                text-align: left; font-family: optima" Text="Structure Assistant" CssClass="Link"
+                                                Target="_blank" Font-Bold="true" NavigateUrl="~/InteractiveServices/SAModule.aspx"></asp:HyperLink>
+                                        </div>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td valign="top" style="margin-top: 0px; padding-bottom: 0px">
+                                         <div id="IsSP" runat="server" visible="false">
+                                            <span style='color: Maroon; font-weight: bold'>NEW - </span>
+                                            <asp:LinkButton ID="lnkSavvy" runat="server" Text="Savvypack Project" Style="font-size: 15px;
+                                                font-weight: bold; text-align: left; font-family: optima" CssClass="Link" OnClientClick="return OpenSavvypack();"></asp:LinkButton>
+                                        </div>
+                                    </td>
+                                </tr>
+                               
+                            </table>
+                            <asp:Table ID="tblLeftMenu" runat="server" Width="176px">
+                            </asp:Table>
+                            <div style="font-size: 18px; font-weight: bold; text-align: left; color: Black; font-family: optima"
+                                runat="server" id="divclients">
+                            </div>
+                            <div id="clientsticker" runat="server" style="margin-top: 15px; width: 174px">
+                            </div>
+                            <div id="Publicationsticker" runat="server" style="margin-top: 15px; width: 174px">
+                            </div>
+
+<div id="Publicationsticker1" runat="server" style="margin-top:10px;margin-Left:30px;">
+ <table width="100%" border="0">
+
+</table>
+                            </div>
+
+                            <br />
+                            <div>
+                                <script type="text/javascript" async="async" defer="defer" data-cfasync="false" src="https://mylivechat.com/chatwidget.aspx?hccid=24687734"></script>
+                            </div>
+                            <br />
+                        </td>
+                        <td style="width: 760px;" valign="top" align="left">
+                            <asp:SiteMapPath ID="SiteMapPath1" Enabled="True" runat="server" PathSeparator=" > "
+                                NodeStyle-CssClass="Link" Font-Names="Optima" Font-Size="13px" Style="margin-left: 5px;">
+                                <NodeStyle CssClass="Link" Font-Bold="True" ForeColor="DarkBlue" />
+                                <PathSeparatorStyle Font-Bold="True" ForeColor="DarkBlue" />
+                                <CurrentNodeStyle ForeColor="DarkBlue" Font-Italic="true" />
+                                <RootNodeStyle Font-Bold="True" ForeColor="DarkBlue" />
+                            </asp:SiteMapPath>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                    <tr class="AlterNateColor3">
+                        <%--      <tr style="background-color:#e6ebf2">--%>
+                        <td class="PageSHeading" align="center" colspan="3">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td align="left" style="width: 270px; padding-left: 10px">
+                                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/SavvyPack_Tiny.gif" />
+                                    </td>
+                                    <td>
+                                        <asp:HyperLink ID="hypContus" runat="server" NavigateUrl="~/ContactUsN.aspx" CssClass="LinkMasterMenu"
+                                            Text="Contact Us"></asp:HyperLink>
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblTag" runat="Server"></asp:Label>
+                                    </td>
+                                    <td align="right" style="width: 270px; padding-right: 10px">
+                                        <asp:Image ID="imgFooter" runat="server" ImageUrl="~/Images/AlliedLogo_Tiny.gif" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div id="error">
+                                <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+                                <asp:Button ID="btnRefresh" runat="server" Style="display: none;" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <asp:HiddenField ID="hdnUserLoginPath" runat="server" />
+                            <asp:HiddenField ID="hdnAlert" Value="0" runat="server" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+    </form>
+</body>
+</html>

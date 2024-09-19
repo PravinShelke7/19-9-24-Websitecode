@@ -1,0 +1,92 @@
+﻿.tdmlg3
+{
+	background-image:url(../../Images/SavvyPackLogo3.gif);
+	background-repeat:no-repeat;
+	width:100%;	
+	text-align:left;
+	background-color:#f2f3f3;
+	}
+.tdmlg4
+{
+	background-image:url(../../Images/SavvyPackLogo4.gif);
+	background-repeat:no-repeat;
+	width:100%;	
+	text-align:left;
+	background-color:#f2f3f3;
+	}
+.tdmlg5
+{
+	background-image:url(../../Images/SavvyPackLogo5.gif);
+	background-repeat:no-repeat;
+	width:100%;	
+	text-align:left;
+	background-color:#f1f1f2;
+	}
+a.Link:link
+{
+	color:Black ;
+	font-family:Optima;
+	font-size:12px;
+	text-decoration:underline;
+}
+
+a.Link:visited
+{
+	color:Black;
+	font-family:Optima;
+	font-size:12px;
+	text-decoration:underline;
+	}
+a.Link:hover
+{
+	color: Red;
+	font-size: 12px;
+	
+	
+}
+a.LinkF:link
+{
+	color:DarkBlue ;
+	font-family:Optima;
+	font-size:14px;
+	text-decoration:underline;
+}
+
+a.LinkF:visited
+{
+	color:DarkBlue;
+	font-family:Optima;
+	font-size:14px;
+	text-decoration:underline;
+	}
+a.LinkF:hover
+{
+	color: Red;
+	font-size: 14px;
+	text-decoration:underline;
+	
+}
+a.LinkStudy:link
+{
+	color:Black ;
+	font-family:Optima;
+	font-size:14px;
+	text-decoration:underline;
+	font-weight:bold 
+}
+
+a.LinkStudy:visited
+{
+	color:Black;
+	font-family:Optima;
+	font-size:14px;
+	text-decoration:underline;
+	font-weight:bold 
+	}
+a.LinkStudy:hover
+{
+	color: Red;
+	font-size: 14px;
+	font-weight:bold 	
+	
+}

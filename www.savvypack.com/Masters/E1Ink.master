@@ -1,0 +1,138 @@
+﻿<%@ Master Language="VB" CodeFile="E1Ink.master.vb" Inherits="Masters_E1Ink" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>   
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <script src="https://www.savvypack.com/JavaScripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="https://www.savvypack.com/JavaScripts/SpecialCharacters.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var txtarray = document.getElementsByTagName("input");
+            var flag;
+            if (txtarray.length != 0) {
+                for (var i = 0; i < txtarray.length; i++) {
+                    if (txtarray[i].type == "text") {
+                        var id = txtarray[i].id;
+                        $('#' + id).change(function () {
+                            CheckSP();
+                        });
+                    }
+                }
+            }
+
+            //To check Multiline Textbox
+            var txtMularray = document.getElementsByTagName("textarea");
+            if (txtMularray.length != 0) {
+                for (var i = 0; i < txtMularray.length; i++) {
+                    if (txtMularray[i].type == "textarea") {
+                        var idMul = txtMularray[i].id;
+                        $('#' + idMul).change(function () {
+                            CheckSPMul("500");
+                        });
+                    }
+                }
+            }
+        });               
+    </script>
+     <style type="text/css">
+        .E1CompModule
+        {
+            margin-top: 2px;
+            margin-left: 1px;
+            background-image: url( '../../../Images/Econ1Fulcrum.gif' );
+            height: 54px;
+            width: 845px;
+            background-repeat: no-repeat;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body style="margin-top:0px;">
+    <form id="form1" runat="server">
+     <div id="MasterContent">
+       
+     <%-- <div id="AlliedLogo">
+            <asp:Image ImageAlign="AbsMiddle" ID="imgLogo" ImageUrl="~/Images/AlliedLogo.gif" runat="server" />
+        </div>  --%>      
+      
+      <div>
+        <table class="E1Module" id="E1Table" runat="server"  cellpadding="0" cellspacing="0"  style="border-collapse:collapse">
+            <tr>
+
+              <td style="padding-left:375px">
+                    <table cellpadding="0" cellspacing="5"   style="border-collapse:collapse">
+                        <tr>
+                                
+                              <td >
+                                    <asp:ImageButton ID="imgUpdate" ImageAlign="Middle" ImageUrl="~/Images/Update.gif" runat="server" ToolTip="Update" Visible="true" />  
+                                </td>
+               <td style="padding-left:60px">
+                    <asp:HyperLink ID="hypPref" runat="server" NavigateUrl="~/Pages/Econ1/PopUp/InkPreference.aspx"  Text="Preferences" CssClass="Link" Target="_blank"></asp:HyperLink>
+               </td>
+                                
+                                         
+                                                                                          
+                                
+                        </tr>
+                    </table>
+               </td>
+
+
+             
+            </tr>
+        </table>
+       </div>
+            
+         <div id="error">
+            <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+          </div>
+    
+   
+   </div>
+    <table class="ContentPage" id="ContentPage" runat="server">
+            <tr>
+                <td>
+                     <div class="PageHeading" id="divMainHeading" runat="server" style="width:840px;">
+                         
+                     </div>                
+                </td>
+            </tr>
+             <tr style="height:20px">
+                <td>
+                    <asp:ContentPlaceHolder id="E1InkContentPlaceHolder" runat="server">      
+              
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr class="AlterNateColor3">
+                 <td class="PageSHeading" align="center">
+                  <asp:Label ID="lblTag" runat="Server" ></asp:Label>
+                </td>
+            </tr>
+          
+        </table>
+        <div id="AlliedLogo">
+            <%--<asp:Image ImageAlign="AbsMiddle" ID="imgLogo" ImageUrl="~/Images/AlliedLogo.gif" runat="server" />--%>
+            <table>
+            <tr>
+                <td class="PageSHeading" align="center">
+                    <table style="width: 845px; background-color: #edf0f4;">
+                        <tr>
+                            <td align="left">
+                                <asp:Image ID="imgFoot" runat="server" ImageUrl="~/Images/SavvyPackLogoB.gif" Height="45px" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            </table>
+        </div
+    </form>
+</body>
+</html>

@@ -1,0 +1,290 @@
+body 
+{	
+	
+}
+#header
+{
+	font-family:Verdana;
+	font-size:18px;
+    color:black;
+    font-weight:bold;
+    margin-top:20px;
+    
+}
+
+#Fonts
+{	
+	font-family:Verdana;
+	color:black;
+	font-size:13px;
+		
+}
+
+.SubHeadding
+{
+	font-family:Verdana;
+	color:black;
+	font-size:16px;
+	font-weight:bold;
+	Width:700px;
+	margin-left:10px;
+    margin-top:20px
+}
+
+.LableFonts
+{
+	font-family:Verdana;
+	color:Red;
+	font-size:15px;
+	font-weight:normal;
+}
+.Error
+{
+	
+	font-family:Verdana;
+	color:Black;
+	font-size:15px;
+	font-weight:bold;
+}
+
+	
+
+	
+.FinTable
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-top:30px;
+    margin-left:20px;
+    width:700px;
+    
+} 
+
+.AssumptionTable
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-top:20px;
+    margin-left:20px;
+        
+    
+      
+	
+}  
+
+a.Logoff:link
+{
+	color:Red;
+	font-family:Verdana;
+	font-size:13px;
+	text-decoration:none;
+    font-weight:bold;
+	
+    
+}
+a.Logoff:visited
+{
+	color:Red;
+	font-family:Verdana;
+	font-size:13px;
+	text-decoration:none;
+	font-weight:bold;
+}
+a.Logoff:hover
+{
+	color: black;
+	font-size: 13px;
+	text-decoration:underline;
+	font-weight:bold;
+	 
+}
+.colored
+{
+   height:20px;
+   background-color: Yellow;
+}
+
+.noncolored
+{
+	height:20px;
+}
+
+a.link:link
+{
+	color:black;
+	font-family:Verdana;
+	font-size:12px;
+	text-decoration:none;
+	cursor:pointer;
+    
+	
+    
+}
+a.link:visited
+{
+	color:black;
+	font-family:Verdana;
+	font-size:12px;
+	text-decoration:none;
+	
+}
+a.link:hover
+{
+	color: red;
+	font-size: 12px;
+	text-decoration:underline;
+	cursor:pointer;
+		
+	 
+}
+
+.Comparison
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-top:30px;
+    margin-left:20px;
+    width:600px;
+    background-color:#d5d5d5
+    
+}
+.CaseComparison
+{
+	
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-left:20px;
+    width:450px;
+    height:168px;
+}
+
+.SavedComp
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-left:20px;
+    width:450px;
+}
+
+.User
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-left:20px;	
+	 width:150px;
+}
+
+.Button
+{
+	
+	font-family:Verdana;
+	font-size:13px;
+    color:blue;
+    margin-left:20px;
+   
+}
+
+.ResetButton
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:blue;
+      
+}
+
+.label
+{
+      margin-left:70px;
+      font-size:13px;
+      color:Blue;
+      font-family:Verdana;
+      font-weight:bold;
+}
+
+.LeftHeading
+{
+	width:140px;
+	text-align:center;
+	font-weight:bold;
+		
+	
+}
+
+.CaseTD
+
+{
+	width:320px;
+	text-align:center;
+	font-weight:bold;
+}
+
+.Unitd
+{
+	font-weight:bold;
+	margin-right:20px;
+	margin-left:20px;
+}
+
+.textBox
+{
+	width:100px;
+	text-align:center;
+	font-size:13px;
+	font-family:Verdana;
+}
+.textfeild
+{
+	text-align:center;
+	font-size:13px;
+	font-family:Verdana;
+	
+}
+.dropdown
+{
+	font-size:13px;
+	font-family:Verdana;
+}
+
+.Layer
+{
+	height:20px;
+	background-color:#B5CCE8;
+	color:black;
+}
+
+.HeaderTR
+{
+	 background-color:#637DBC;
+	 height:20px;
+	 color:white;
+	 
+}
+
+.ColorTR
+{
+	background-color:#D4DDED
+}
+
+	
+
+	 
+	 
+
+
+
+
+
+
+
+    
+    
+    
+
+   
+	

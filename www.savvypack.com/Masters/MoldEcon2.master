@@ -1,0 +1,251 @@
+<%@ Master Language="VB" CodeFile="MoldEcon2.master.vb" Inherits="Masters_MoldEcon2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <link href="../App_Themes/SkinFile/E1Print.css" rel="stylesheet" type="text/css"
+        media="print" />
+    <script type="text/javascript">
+        javascript: window.history.forward(1);
+        function FeedBack() {
+
+
+            var daReferrer = document.referrer;
+            var email = "sam@allied-dev.com";
+            var errorMsg = "here here here is the error error error error";
+            var subject = "Feedback On SavvyPack System";
+            var CC = "emm@allied-dev.com"
+
+            var mailto_link = 'mailto:' + email + '?subject=' + subject + '&CC=' + CC;
+
+            win = window.open(mailto_link, 'emailWindow');
+            if (win && win.open && !win.closed) win.close();
+
+            return false;
+
+        }
+        function Notes(Page) {
+            //window.open('ItemSearch.aspx', 'ItemSearch', 'status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=400,width=600');  
+            var width = 550;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=no';
+            params += ', menubar=no';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=no';
+            URL = "../Notes/Notes.aspx?ACODE=" + Page + ""
+            newwin = window.open(URL, 'Notes', params);
+            return false
+
+        }
+
+        function Chart(Page, Title) {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page
+            newwin = window.open(URL, Title, params);
+            return false
+
+        }
+
+
+        function Wizard(Page) {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+
+        function Help() {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = "../../Econ1/help/SavvyPackInstructions1.htm"
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+
+        function Compare(Page) {
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page;
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+        
+         
+    </script>
+    <style type="text/css">
+        .E2MoldModule
+        {
+            margin-top: 2px;
+            margin-left: 1px;
+            background-image: url('../../../Images/E2MoldHeader.gif');
+            height: 44px;
+            width: 845px;
+            background-repeat: no-repeat;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body style="margin-top: 0px;">
+    <form id="form1" runat="server">
+    <div id="MasterContent">
+        <div>
+            <table class="E2MoldModule" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+                <tr>
+                    <td style="padding-left: 410px">
+                        <table cellpadding="0" cellspacing="5" style="border-collapse: collapse">
+                            <tr>
+                                <td>
+                                    <asp:ImageButton ID="imgUpdate" ImageAlign="Middle" ImageUrl="~/Images/Update.gif"
+                                        runat="server" ToolTip="Update" Visible="true" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgLogoff" ImageAlign="Middle" ImageUrl="~/Images/LogOff.gif"
+                                        runat="server" ToolTip="Log Off" Visible="true" PostBackUrl="~/Universal_loginN/Pages/ULogOff.aspx?Type=E2" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgInstructions" ImageAlign="Middle" ImageUrl="~/Images/Instruction.gif"
+                                        runat="server" ToolTip="Instructions" Visible="true" OnClientClick="return Help();" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgChart" ImageAlign="Middle" ImageUrl="~/Images/ChartN.gif"
+                                        runat="server" ToolTip="Charts" Visible="true" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgFeedback" ImageAlign="Middle" ImageUrl="~/Images/FeedbackN.gif"
+                                        runat="server" ToolTip="Feedback" OnClientClick="return FeedBack();" Visible="true" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgNotes" ImageAlign="Middle" ImageUrl="~/Images/NotesN.gif"
+                                        runat="server" ToolTip="Notes" Visible="true" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgWizard" ImageAlign="Middle" ImageUrl="~/Images/Wizard.gif"
+                                        runat="server" ToolTip="Wizard" Visible="false" />
+                                </td>
+                                <td>
+                                    <asp:ImageButton ID="imgCompare" ImageAlign="Middle" ImageUrl="~/Images/CompareN.gif"
+                                        runat="server" ToolTip="Comparison" Visible="false" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="error">
+            <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+        </div>
+    </div>
+    <div>
+        <table class="ContentPage" id="ContentPage" runat="server">
+            <tr>
+                <td>
+                    <div class="PageHeading" id="divMainHeading" runat="server" onmouseover="Tip('Material Assumption')"
+                        onmouseout="UnTip()" style="width: 840px;">
+                    </div>
+                    <table border="0" id="tblCaseDes" runat="server" cellpadding="0" cellspacing="0">
+                        <tr style="height: 20px">
+                            <td style="width: 350px; text-align: Left;">
+                                <b>Case Id:</b><asp:Label ID="lblCaseID" runat="server" CssClass="NormalLable"></asp:Label>
+                            </td>
+                            <td style="width: 60px; text-align: Left;">
+                                <b>Case Type:</b>
+                            </td>
+                            <td style="width: 50%">
+                                <asp:Label ID="lblCaseType" runat="server" CssClass="NormalLable"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr style="height: 20px">
+                            <td colspan="2">
+                                <span id="caseDe3" runat="server"><b>Case Brief:</b></span>
+                                <asp:Label ID="lblCaseDe2" runat="server" CssClass="NormalLable"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 20px">
+                <td>
+                    <asp:ContentPlaceHolder ID="MoldEcon2ContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr class="AlterNateColor3">
+                <td class="PageSHeading" align="center">
+                    <asp:Label ID="lblTag" runat="Server"></asp:Label>
+                </td>
+            </tr>
+        </table>
+    </div>
+   <div id="AlliedLogo">
+            <table>
+                <tr>
+                    <td class="PageSHeading" align="center">
+                        <table style="width: 845px; background-color: #edf0f4;">
+                            <tr>
+                                <td align="left">
+                                    <asp:Image ID="imgFoot" runat="server" ImageUrl="~/Images/SavvyPackLogoB.gif" Height="45px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

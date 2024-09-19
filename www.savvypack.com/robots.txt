@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /Video/
+Disallow: /services/
+Disallow: /studies2/
+Disallow: /econmarketing/
+
+
+
+
+

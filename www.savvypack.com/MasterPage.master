@@ -1,0 +1,120 @@
+<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link rel="stylesheet" href="App_Themes/SkinFile/AlliedNew.css" />
+    <script language="JavaScript" type="text/javascript">
+        function valList() {
+
+            var selCount = 0;
+            var namelength = document.getElementById("ctl00$ContentPlaceHolder1$ComparisonName").value
+            for (var i = 0; i < document.getElementById("ctl00$ContentPlaceHolder1$CaseComp").length; i++) {
+                if (document.getElementById("ctl00$ContentPlaceHolder1$CaseComp")[i].selected) {
+                    selCount += 1;
+                }
+
+            }
+
+            if (selCount > 10) {
+                alert("You Cannot Select More Then 10 Cases!!!");
+                return false;
+            }
+
+            if (selCount < 2) {
+                alert("Please Select at Least Two Case!!");
+                return false;
+            }
+            if (namelength == "") {
+                alert("Please enter the text for new comparison!!");
+                return false;
+            }
+            return true;
+
+        }
+        function validate() {
+            alert("am in ");
+        }
+
+        function showhideALL(Type) {
+            for (i = 1; i <= 10; i++) {
+                obj = document.getElementById(Type + "_" + i);
+                if (document.getElementById(Type).checked == false) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+
+        function showhideALL1(Type) {
+
+            obj = document.getElementById(Type + "_" + "1");
+            if (document.getElementById(Type).checked == false) {
+                obj.style.display = "";
+            }
+            else {
+                obj.style.display = "none";
+            }
+
+        }
+
+        function showhideALL2(Type) {
+            for (i = 1; i <= 30; i++) {
+                obj = document.getElementById(Type + "_" + i);
+                if (document.getElementById(Type).checked == false) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+
+        function showhideColumn(colIndex) {
+            var table = document.getElementById('ctl00_ContentPlaceHolder1_tblComparision');
+            for (var r = 0; r < table.rows.length; r++) {
+                if (document.getElementById('chkBox_' + colIndex).checked == false)
+                    table.rows[r].cells[colIndex].style.display = '';
+                else
+                    table.rows[r].cells[colIndex].style.display = 'none';
+            }
+
+        }
+
+        
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="MasterContent">
+        <div id="AlliedLogo">
+            <asp:Image ImageAlign="AbsMiddle" ID="imgLogo" ImageUrl="~/Images/SavvyPackLogoB.gif"
+                Height="56px" runat="server" />
+        </div>
+        <div id="error">
+            <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+        </div>
+    </div>
+    <table class="ContentPage" id="ContentPage" runat="server" style="width: 840px">
+        <tr style="height: 20px; width: 840px;">
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" Visible="false">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr class="AlterNateColor3">
+            <td class="PageSHeading" align="center">
+                <asp:Label ID="lblTag" runat="Server"></asp:Label>
+            </td>
+        </tr>
+    </table>
+    <div>
+    </div>
+    </form>
+</body>
+</html>

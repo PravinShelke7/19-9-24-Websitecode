@@ -1,0 +1,336 @@
+﻿<%@ Master Language="VB" CodeFile="StructAssistComp.master.vb" Inherits="Masters_Econ3" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+   <script src="https://www.savvypack.com/JavaScripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="https://www.savvypack.com/JavaScripts/SpecialCharacters.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var txtarray = document.getElementsByTagName("input");
+            var flag;
+            if (txtarray.length != 0) {
+                for (var i = 0; i < txtarray.length; i++) {
+                    if (txtarray[i].type == "text") {
+                        var id = txtarray[i].id;
+                        $('#' + id).change(function () {
+                            CheckSP();
+                        });
+                    }
+                }
+            }
+
+            //To check Multiline Textbox
+            var txtMularray = document.getElementsByTagName("textarea");
+            if (txtMularray.length != 0) {
+                for (var i = 0; i < txtMularray.length; i++) {
+                    if (txtMularray[i].type == "textarea") {
+                        var idMul = txtMularray[i].id;
+                        $('#' + idMul).change(function () {
+                            CheckSPMul("500");
+                        });
+                    }
+                }
+            }
+        });               
+    </script>
+    <style type="text/css">
+        .SBAModule
+        {
+            margin-top: 2px;
+            margin-left: 1px;
+            background-image: url('../../../Images/SavvyPackStructureAssistantR01.gif');
+            height: 60px;
+            width: 845px;
+            background-repeat: no-repeat;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <script type="text/JavaScript">
+        javascript: window.history.forward(1);
+        function CloseWindow() {
+            window.close();
+            return false;
+        }
+        function showhideTotal(Type) {
+
+            for (i = 1; i <= 1; i++) {
+                obj = document.getElementById(Type + "_" + i);
+
+                if (document.getElementById(Type).checked == true) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+        function showhideALL(Type) {
+            for (i = 1; i <= 10; i++) {
+                obj = document.getElementById(Type + "_" + i);
+
+                if (document.getElementById(Type).checked == true) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+        function showhideMax(Type) {
+            for (i = 1; i <= 30; i++) {
+                obj = document.getElementById(Type + "_" + i);
+                if (document.getElementById(Type).checked == true) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+        function showhide(Type) {
+
+            for (i = 1; i <= 25; i++) {
+                obj = document.getElementById(Type + "_" + i);
+
+                if (obj != null) {
+                    if (document.getElementById(Type).checked == true) {
+                        obj.style.display = "";
+                    }
+                    else {
+                        obj.style.display = "none";
+                    }
+                }
+
+            }
+        }
+
+
+        function showhideALLRW(Type) {
+            for (k = 1; k <= 10; k++) {
+                for (i = 1; i <= 10; i++) {
+
+
+                    obj = document.getElementById(Type + "_" + i + "_" + k);
+
+                    if (document.getElementById(Type).checked == true) {
+                        obj.style.display = "";
+                    }
+                    else {
+                        obj.style.display = "none";
+                    }
+
+                }
+
+            }
+        }
+
+
+
+        function showhideALL1(Type) {
+
+
+            obj = document.getElementById(Type + "1");
+
+            if (document.getElementById(Type).checked == true) {
+                obj.style.display = "";
+            }
+            else {
+                obj.style.display = "none";
+            }
+
+        }
+        function showhideALL3(Type) {
+
+
+            obj = document.getElementById(Type + "_1");
+
+            if (document.getElementById(Type).checked == true) {
+                obj.style.display = "";
+            }
+            else {
+                obj.style.display = "none";
+            }
+
+        }
+
+        function showhideALL2(Type) {
+            for (i = 1; i <= 30; i++) {
+                obj = document.getElementById(Type + "_" + i);
+                if (document.getElementById(Type).checked == true) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+
+        function showhideALLCnt(Type, Cnt) {
+            for (i = 1; i <= Cnt; i++) {
+
+                obj = document.getElementById(Type + "_" + i);
+                if (document.getElementById(Type).checked == true) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+        function showhideALLNEW(Type) {
+            for (i = 1; i <= 3; i++) {
+                obj = document.getElementById(Type + "_" + i);
+                if (document.getElementById(Type).checked == true) {
+                    obj.style.display = "";
+                }
+                else {
+                    obj.style.display = "none";
+                }
+
+            }
+        }
+
+        function showhideColumn(colIndex) {
+
+            var table = document.getElementById('ctl00_StructAssistCompContentPlaceHolder_tblComparision');
+
+            for (var r = 0; r < table.rows.length; r++) {
+                if (document.getElementById('chkBox_' + colIndex).checked == true) {
+                    table.rows[r].cells[colIndex].style.display = '';
+                }
+                else {
+                    table.rows[r].cells[colIndex].style.display = 'none';
+
+                }
+            }
+
+        }
+        function Compare(Page) {
+
+            var width = 800;
+            var height = 400;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var URL
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            URL = Page;
+            newwin = window.open(URL, 'Chart', params);
+            return false
+
+        }
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-16991293-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') +
+'.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <%-- <center>--%>
+    <form id="form1" runat="server">
+    <center>
+        <div>
+            <div id="SBA">
+                <asp:Image ImageAlign="AbsMiddle" ID="Image1" ImageUrl="~/Images/SavvyPackStructureAssistantR02vmw4-11.gif"
+                    runat="server" Width="1220px" Height="50px" />
+            </div>
+            <div>
+                <table cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+                    <tr>
+                        <td style="padding-left: 490px">
+                            <table cellpadding="0" cellspacing="5" style="border-collapse: collapse">
+                                <tr>
+                                    <td>
+                                        <asp:ImageButton ID="imgUpdate" ImageAlign="Middle" ImageUrl="~/Images/Update.gif"
+                                            runat="server" ToolTip="Update" Visible="false" />
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgGlobal" ImageAlign="Middle" ImageUrl="~/Images/GlobalManager.gif"
+                                            runat="server" ToolTip="Update" Visible="false" />
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgLogoff" ImageAlign="Middle" ImageUrl="~/Images/LogOff.gif"
+                                            runat="server" ToolTip="Log Off" Visible="false" />
+                                    </td>
+                                    <td>
+                                        <asp:ImageButton ID="imgCompare" ImageAlign="Middle" ImageUrl="~/Images/ChartN.gif"
+                                            runat="server" ToolTip="Charts" Visible="false" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="error">
+                <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+            </div>
+        </div>
+        <%-- <div style="overflow:scroll;width:845px;height:520px;">--%>
+        <table class="ContentPage" id="ContentPage" runat="server">
+            <tr>
+                <td>
+                    <asp:ContentPlaceHolder ID="StructAssistCompContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr class="AlterNateColor3">
+                <td class="PageSHeading" align="center">
+                    <asp:Label ID="lblTag" runat="Server"></asp:Label>
+                </td>
+            </tr>
+        </table>
+        <%-- </div>--%>
+        <%--<div id="ContentPage" class="ContentPage" runat="server">
+            <asp:ContentPlaceHolder id="Sustain1ContentPlaceHolder" runat="server">      
+              
+            </asp:ContentPlaceHolder>
+        </div>--%>
+        <div id="AlliedLogo">
+            <table>
+                <tr>
+                    <td class="PageSHeading" align="center">
+                        <table style="width: 845px; background-color: #edf0f4;">
+                            <tr>
+                                <td align="left">
+                                    <asp:Image ID="imgFoot" runat="server" ImageUrl="~/Images/SavvyPackLogoB.gif" Height="45px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <%--  <div id="AlliedLogo">
+            <asp:Image ImageAlign="AbsMiddle" ID="imgLogo" ImageUrl="~/Images/AlliedLogo02.gif" runat="server" Width="1220px" />
+        </div>  --%>
+    </center>
+    </form>
+    <%--</center>--%>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<%@ Master Language="VB" CodeFile="E2PopUp.master.vb" Inherits="Masters_E2PopUp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+     <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <title>Untitled Page</title>
+   <script src="https://www.savvypack.com/JavaScripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="https://www.savvypack.com/JavaScripts/SpecialCharacters.js" type="text/javascript"></script>
+      <script type="text/javascript">
+          $(document).ready(function () {
+
+              var txtarray = document.getElementsByTagName("input");
+              var flag;
+              if (txtarray.length != 0) {
+                  for (var i = 0; i < txtarray.length; i++) {
+                      if (txtarray[i].type == "text") {
+                          var id = txtarray[i].id;
+                          $('#' + id).change(function () {
+                              CheckSP();
+                          });
+                      }
+                  }
+              }
+
+              //To check Multiline Textbox
+              var txtMularray = document.getElementsByTagName("textarea");
+              if (txtMularray.length != 0) {
+                  for (var i = 0; i < txtMularray.length; i++) {
+                      if (txtMularray[i].type == "textarea") {
+                          var idMul = txtMularray[i].id;
+                          $('#' + idMul).change(function () {
+                              CheckSPMul("500");
+                          });
+                      }
+                  }
+              }
+          });               
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+        </asp:contentplaceholder>
+    </div>
+    </form>
+</body>
+</html>

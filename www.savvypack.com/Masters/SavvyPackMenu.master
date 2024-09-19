@@ -1,0 +1,660 @@
+﻿<%@ Master Language="VB" CodeFile="SavvyPackMenu.master.vb" Inherits="Masters_SavvyPackMenu" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>SavvyPack® - Intelligent Packaging Analysis</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="WfmcjMWsp1zBxDHgQtQNxO-f3RLm1Ix8mA69zMhKgA8" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="../JavaScripts/jcarousellite_1.0.1c4.js" type="text/javascript"></script>
+    <script src="../JavaScripts/jquery-latest.pack.js" type="text/javascript"></script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <script src="https://www.savvypack.com/JavaScripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="https://www.savvypack.com/JavaScripts/SpecialCharacters.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var txtarray = document.getElementsByTagName("input");
+            var flag;
+            if (txtarray.length != 0) {
+                for (var i = 0; i < txtarray.length; i++) {
+                    if (txtarray[i].type == "text" || txtarray[i].type == "password") {
+                        var id = txtarray[i].id;
+                        $('#' + id).change(function () {                            
+                            return CheckSP();
+                        });
+                    }
+                }
+            }
+
+            //To check Multiline Textbox
+            var txtMularray = document.getElementsByTagName("textarea");
+            if (txtMularray.length != 0) {
+                for (var i = 0; i < txtMularray.length; i++) {
+                    if (txtMularray[i].type == "textarea") {
+                        var idMul = txtMularray[i].id;
+                        $('#' + idMul).change(function () {                            
+                            return CheckSPMul("500");
+                        });
+                    }
+                }
+            }
+        });
+    </script>
+    <style type="text/css">
+        .ChatImage
+        {
+            background-color: #84A638;
+            height: 16px;
+            background-repeat: no-repeat;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .IEpblm
+        {
+            z-index: 100;
+        }
+        .MainMasterContentNEW
+        {
+            width: 950px; /*background-color: #f2f3f3;*/
+            color: #5e96cb;
+        }
+        
+        /*Menu Style*/
+        
+        .sidepanel
+        {
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+			overflow-y: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            height: 100%;
+        }
+        
+        .sidepanel a, .dropbtn, .lblpr
+        {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            font-family: Optima;
+        }
+        
+        .sidepanel a:hover, .dropbtn:hover
+        {
+            color: #f1f1f1;
+        }
+        
+        .sidepanel .closebtn
+        {
+            position: absolute;
+            top: 0;
+            left: -10px;
+            font-size: 36px;
+        }
+        
+        .openbtn
+        {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #00994C;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            float: right;
+        }
+        
+        .openbtn:hover
+        {
+            background-color: #004C99;
+        }
+        
+        .fa-caret-down
+        {
+            padding-left: 30px;
+        }
+        
+        .dropdown
+        {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .dropdown-content
+        {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 275px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-left: 5px;
+            right: 0;
+        }
+        
+        .dropdown-content a
+        {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            max-width: 243px;
+        }
+        
+        .dropdown-content a:hover
+        {
+            background-color: #ddd;
+            color: Black;
+        }
+        
+        .dropdown:hover .dropdown-content
+        {
+            display: block;
+        }
+        
+        /*Second Dropdown*/
+        .dropdown_pr
+        {
+            float: left;
+            overflow: hidden;
+        }
+        
+        .dropdown_pr-content
+        {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 305px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-left: 5px;
+            right: 0;
+        }
+        
+        .dropdown_pr-content a
+        {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            max-width: 273px;
+        }
+        
+        .dropdown_pr-content a:hover
+        {
+            background-color: #ddd;
+            color: Black;
+        }
+        
+        .dropdown_pr:hover .dropdown_pr-content
+        {
+            display: block;
+        }
+        .lblpr
+        {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00bfff;
+            display: block;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+        }
+        .tdmlgb
+        {
+            background-image: url(../Images/mlg4.gif);
+            background-repeat: no-repeat;
+            width: 500px;
+            text-align: center;
+            background-color: #f2f3f3;
+            border-bottom: solid 2px #5f85b3;
+            border-top: solid 2px #5f85b3;
+            border-right: 2px solid blck;
+        }
+        
+        /* tool dropdown */
+        .dropdown_tool
+        {
+            float: left;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .dropdown_tool-content
+        {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 350px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            margin-left: 5px;
+            right: 0;
+        }
+        
+        .dropdown_tool-content a
+        {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            max-width: 318px;
+        }
+        
+        .dropdown_tool-content a:hover
+        {
+            background-color: #ddd;
+            color: Black;
+        }
+        
+        .dropdown_tool:hover .dropdown_tool-content
+        {
+            display: block;
+        }
+    </style>
+    <script type="text/JavaScript">
+
+function OpenWindowMaster1(Page) {
+            var width = 800;
+            var height = 600;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=yes';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            // newwin = window.open(Page, params);
+            //alert('TEST');
+            newwin = window.open(Page, 'MASTER1');
+            if (newwin == null || typeof (newwin) == "undefined") {
+                alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+            }
+
+            return false;
+        }
+function OpenWindowMaster2(Page) {
+            var width = 800;
+            var height = 600;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=yes';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            // newwin = window.open(Page, params);
+            //alert('TEST');
+            newwin = window.open(Page, 'MASTER2');
+            if (newwin == null || typeof (newwin) == "undefined") {
+                alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+            }
+
+            return false;
+        }
+
+function OpenWindowMaster3(Page) {
+            var width = 800;
+            var height = 600;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=yes';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            // newwin = window.open(Page, params);
+            //alert('TEST');
+            newwin = window.open(Page, 'MASTER3');
+            if (newwin == null || typeof (newwin) == "undefined") {
+                alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+            }
+
+            return false;
+        }
+
+
+        function OpenLoginPopup(Serv) {
+            var userId = '<%=Session("UserId")%>';
+            var LoginPath = document.getElementById('<%=hdnUserLoginPath.ClientId %>');
+            if (userId != "") {
+                return true;
+            }
+            else {
+                var Path = LoginPath.value + "?Serv=" + Serv;
+                ShowLoginWindow(Path);
+                return false;
+            }
+        }
+
+        function ShowLoginWindow(Page) {
+            //window.open('ItemSearch.aspx', 'ItemSearch', 'status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=0,height=400,width=600');            
+            var width = 680;
+            var height = 300;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+            params += ', location=no';
+            params += ', menubar=no';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=no';
+            newwin = window.open(Page, 'MainLogin', params);
+            if (newwin == null || typeof (newwin) == "undefined") {
+                alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+            }
+            return false;
+        }
+
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "450px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
+            return false;
+        }
+
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+            document.body.style.backgroundColor = "white";
+            return false;
+        }
+
+        function OpenUManagerPopUp(Page) {
+
+            var userId = '<%=Session("UserId")%>';
+            if (userId == "") {
+                return true;
+            }
+            else {
+
+                var width = 600;
+                var height = 460;
+                var left = (screen.width - width) / 2;
+                var top = (screen.height - height) / 2;
+                var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+                params += ', location=no';
+                params += ', menubar=no';
+                params += ', resizable=yes';
+                params += ', scrollbars=yes';
+                params += ', status=yes';
+                params += ', toolbar=no';
+                newwin = window.open(Page, 'UManagerI', params);
+                if (newwin == null || typeof (newwin) == "undefined") {
+                    alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+                }
+                return false;
+            }
+        }
+        function OpenNewWindow(Page) {
+            var width = 800;
+            var height = 600;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=yes';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            // newwin = window.open(Page, params);
+            //alert('TEST');
+            newwin = window.open(Page, 'UManager002');
+            if (newwin == null || typeof (newwin) == "undefined") {
+                alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+            }
+
+            return false;
+        }
+
+ function OpenWindowMaster(Page) {
+            var width = 800;
+            var height = 600;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=yes';
+            params += ', location=yes';
+            params += ', menubar=yes';
+            params += ', resizable=yes';
+            params += ', scrollbars=yes';
+            params += ', status=yes';
+            params += ', toolbar=yes';
+            // newwin = window.open(Page, params);
+            //alert('TEST');
+            newwin = window.open(Page, 'UManager002');
+            if (newwin == null || typeof (newwin) == "undefined") {
+                alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+            }
+
+            return false;
+        }
+
+        function OpenUMgrPopUp(Page) {
+
+            var userId = '<%=Session("UserId")%>';
+            if (userId == "") {
+                return true;
+            }
+            else {
+                var width = 560;
+                var height = 460;
+                var left = (screen.width - width) / 2;
+                var top = (screen.height - height) / 2;
+                var params = 'width=' + width + ',height=' + height; params += ',top=' + top + ', left=' + left; params += ', directories=no';
+                params += ', location=no';
+                params += ', menubar=no';
+                params += ', resizable=yes';
+                params += ', scrollbars=yes';
+                params += ', status=yes';
+                params += ', toolbar=no';
+                newwin = window.open(Page, 'UMgr', params);
+                if (newwin == null || typeof (newwin) == "undefined") {
+                    alert("Pop-ups are being blocked. Please add www.savvypack.com to your trusted sites and disable pop-up blocking.");
+                }
+
+                return false;
+            }
+        }
+
+    </script>
+    <script type="text/JavaScript">
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6713797017212294",
+            enable_page_level_ads: true
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+     <asp:Panel ID="MenuSlider" runat="server">
+    <div>
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="return closeNav();">×</a>
+            <a href="../Index.aspx" id="lnkHome" runat="server">HOME</a>
+            <asp:LinkButton ID="lnkAbtUs" runat="server" Text="ABOUT US">
+            </asp:LinkButton>
+            <div class="dropdown_tool">
+                <button class="dropbtn" onclick="return Drp();">
+                    TOOLS <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown_tool-content">
+                    <asp:LinkButton ID="lnkSavvy" runat="server" Text="Savvypack Project">
+                    </asp:LinkButton>
+                </div>
+            </div>
+            <asp:LinkButton ID="lnkWebc" runat="server" Text="WEBINARS">
+            </asp:LinkButton>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="return Drp();">
+                    PACKAGING MARKET INTELLIGENCE <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <asp:LinkButton ID="lnkStud" runat="server" Text="Studies">
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lnkCPK" runat="server" Text="Contract Packaging Database">
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lnkOData1" runat="server" Text="Packaging Market Database">
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lnkProf" runat="server" Text="Company Profiles">
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lnkCons" runat="server" Text="Consulting">
+                    </asp:LinkButton>
+                </div>
+            </div>
+            <div class="dropdown_pr">
+                <button class="dropbtn" onclick="return Drp();">
+                    PACKAGING ANALYTICS <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown_pr-content">
+                    <asp:LinkButton ID="lnkAnal" runat="server" Text="Savvypack Analytical Services">
+                    </asp:LinkButton>
+                    <asp:LinkButton ID="lnkStrc" runat="server" Text="Savvypack Structure Assistant">
+                    </asp:LinkButton>
+                    <%--<asp:LinkButton ID="lnkCon" runat="server" Text="Consulting"></asp:LinkButton>
+                    <a onclick="javascript:window.open('AnalyticalService.aspx');">Savvypack Analytical
+                        Services</a> <a onclick="javascript:window.open('Structure Assistant.aspx');">Savvypack
+                            Structure Assistant</a> --%><a href="../Consulting/Consulting.aspx">Consulting</a>
+                </div>
+            </div>
+            <div style="margin-top: 200px;">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblUserMess" CssClass="lblpr" runat="server"></asp:Label>
+                            <asp:LinkButton ID="lnkLogout" runat="server">
+                            </asp:LinkButton>
+                        </td>
+                    </tr>
+                </table>
+                <asp:LinkButton ID="lnkSavvyPack" runat="server" Text="Savvypack Analytics">
+                </asp:LinkButton>
+                <asp:LinkButton ID="lnkOData" runat="server" Text="Savvypack Online Database">
+                </asp:LinkButton>
+                <asp:LinkButton ID="lnkAcco" runat="server" Text="Account Management">
+                </asp:LinkButton>
+                <asp:LinkButton ID="lnkCntUs" runat="server" Text="Contact Us">
+                </asp:LinkButton>
+            </div>
+            <br />
+        </div>
+        <button class="openbtn" onclick="return openNav();">
+            ☰ Menu</button>
+    </div>
+    </asp:Panel>
+    <center>
+        <div id="MainMasterContentNEW" class="MainMasterContentNEW">
+            <table style="border-collapse: collapse;" cellpadding="0" cellspacing="0" width="100%;">
+                <tr>
+                    <td align="left">
+                        <%-- <div class="IndexModule">
+                        </div>--%>
+                        <asp:Image ID="imgs" runat="server" ImageUrl="~/Images/SavvyPackLogoB.gif" Height="65px"
+                            Style="margin-top: 10px; margin-left: 5px; margin-bottom: 10px; margin-left: -1px;" />
+                        <%--<asp:ImageButton ID="imgShpcart" runat="server" PostBackUrl="~/ShoppingCart/OrderReview.aspx"
+                            ImageUrl="~/Images/imageedit_2_8918867558.png" Style="height: 36px; margin-left: 580px;" />--%>
+                        <asp:ImageButton ID="imgShpcart" runat="server" ImageUrl="~/Images/imageedit_2_8918867558.png"
+                            Style="height: 36px; margin-left: 580px;" />
+                    </td>
+                </tr>
+                <tr style="height: 85px; vertical-align: middle;">
+                    <td class="tdmlg3" align="right">
+                    </td>
+                </tr>
+            </table>
+            <div style="text-align: left;">
+                <table cellpadding="0" cellspacing="0" width="950px;">
+                    <tr>
+                        <td style="width: 940px;" valign="top" align="left">
+                            <%--<asp:SiteMapPath ID="SiteMapPath1" Enabled="True" runat="server" PathSeparator=" > "
+                                NodeStyle-CssClass="Link" Font-Names="Optima" Font-Size="13px" Style="margin-left: 5px;">
+                                <NodeStyle CssClass="Link" Font-Bold="True" ForeColor="DarkBlue" />
+                                <PathSeparatorStyle Font-Bold="True" ForeColor="DarkBlue" />
+                                <CurrentNodeStyle ForeColor="DarkBlue" Font-Italic="true" />
+                                <RootNodeStyle Font-Bold="True" ForeColor="DarkBlue" />
+                            </asp:SiteMapPath>--%>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                    <tr class="AlterNateColor3">
+                        <%--      <tr style="background-color:#e6ebf2">--%>
+                        <td class="PageSHeading" align="center" colspan="3">
+                            <table style="width: 100%">
+                                <tr>
+                                    <td align="left" style="width: 270px; padding-left: 10px">
+                                        <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/SavvyPack_Tiny.gif" />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblTag" runat="Server"></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div id="error">
+                                <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+                                <asp:Button ID="Button1" runat="server" Style="display: none;" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <asp:HiddenField ID="hdnUserLoginPath" runat="server" />
+                            <asp:HiddenField ID="HiddenField1" runat="server" />
+                            <asp:HiddenField ID="hdnAlert" Value="0" runat="server" />
+                            <asp:Button ID="btnRefresh" runat="server" Style="display: none;" />
+                            <asp:HiddenField ID="hidTId" runat="server" />
+                            <asp:Button ID="btnServ" runat="server" Style="visibility: hidden;"></asp:Button>
+                            <asp:Button ID="btnMrkt" runat="server" Style="visibility: hidden;"></asp:Button>
+                            <asp:Button ID="btnCntr" runat="server" Style="visibility: hidden;"></asp:Button>
+                            <asp:Button ID="btnSavvy" runat="server" Style="visibility: hidden;"></asp:Button>
+                            <asp:Button ID="btnOData" runat="server" Style="visibility: hidden;"></asp:Button>
+                            <asp:Button ID="btnProj" runat="server" Style="visibility: hidden;"></asp:Button>
+                            <asp:Button ID="btnShopCart" runat="server" Style="visibility: hidden;"></asp:Button>
+							<asp:Button ID="btnAccInfo" runat="server" Style="visibility: hidden;"></asp:Button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </center>
+    </form>
+</body>
+</html>

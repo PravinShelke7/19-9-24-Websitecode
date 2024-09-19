@@ -1,0 +1,199 @@
+﻿
+#SavvyContentPagemargin
+{
+    margin-left: 1px;
+}
+
+#SavvyPageSection1
+{
+    background-color: #D3E7CB;
+}
+
+#SavvyMasterContent
+{
+    width: 610px;
+}
+
+.SavvyPackLabel
+{
+    margin-left: 0px;
+}
+
+.SavvyPackButton
+{
+    margin-left: 10px;
+}
+
+.grdProject
+{
+    width: 600px;
+    font-family: Verdana;
+    font-size: 12px;
+    border-right: #32659A 1px solid;
+    border-top: #32659A 1px solid;
+    border-left: #32659A 1px solid;
+    border-bottom: #32659A 1px solid;
+}
+
+a.SavvyLink:link
+{
+    color: Black;
+    font-family: Optima;
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: bold;
+    width: 150px;
+    margin-left: 30px;
+}
+
+a.SavvyLink:visited
+{
+    color: Black;
+    font-family: Optima;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+a.SavvyLink:hover
+{
+    color: Red;
+    font-size: 12px;
+}
+
+.SavvyMediumTextBox
+{
+    font-family: Optima;
+    font-size: 11.5Px;
+    height: 17px;
+    width: 70px;
+    background-color: #FEFCA1;
+    border-right: #7F9DB9 1px solid;
+    border-top: #7F9DB9 1px solid;
+    border-left: #7F9DB9 1px solid;
+    border-bottom: #7F9DB9 1px solid;
+}
+
+.SavvyModule
+{
+    margin-top: 2px;
+    margin-left: 1px;
+    background-image: url(../../Images/SavvyPackProject610x45.gif);
+    height: 44px;
+    width: 604px;
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.SavvyLinkN:link
+{
+    color: Black;
+    font-family: Optima;
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+a.SavvyLinkN:visited
+{
+    color: Black;
+    font-family: Optima;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+a.SavvyLinkN:hover
+{
+    color: Red;
+    font-size: 12px;
+}
+
+.SavvyEditbtn
+{
+    margin-top: 10px;
+    margin-left: 1px;
+    background-image: url(../../Images/editS.jpg);
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.SavvyDelbtn
+{
+    margin-top: 10px;
+    margin-left: 0px;
+    background-image: url(../../Images/cross.png);
+    background-repeat: no-repeat;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.SavvyTextBox
+{
+    font-family: Optima;
+    font-size: 11.5Px;
+    height: 14px;
+    width: 90%;
+    background-color: #FEFCA1;
+    margin-right: 2px;
+    border-right: #7F9DB9 1px solid;
+    border-top: #7F9DB9 1px solid;
+    border-left: #7F9DB9 1px solid;
+    border-bottom: #7F9DB9 1px solid;
+    text-align: left;
+}
+
+.SavvyMultiTextBox
+{
+    font-family: Optima;
+    font-size: 11.5Px;
+    height: 28px;
+    width: 90%;
+    background-color: #FEFCA1;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-right: #7F9DB9 1px solid;
+    border-top: #7F9DB9 1px solid;
+    border-left: #7F9DB9 1px solid;
+    border-bottom: #7F9DB9 1px solid;
+    text-align: left;
+}
+
+#SavvyContentPagemargin
+{
+    margin-left: 0px;
+}
+
+#SavvyPageSection1
+{
+    background-color: #D3E7CB;
+    margin-left: 0px;
+}
+
+.SavvyContentPage
+{
+    margin-top: 2px;
+    margin-left: 1px;
+    background-color: #F1F1F2;
+}
+
+a.SavvyGLink:link
+{
+    color: rgb(100,100,100);
+    font-size: 12px;
+}
+
+a.SavvyGLink:visited
+{
+    color: rgb(100,100,100);
+    font-size: 12px;
+}
+
+a.SavvyGLink:hover
+{
+    color: rgb(100,100,100);
+    font-size: 12px;
+}

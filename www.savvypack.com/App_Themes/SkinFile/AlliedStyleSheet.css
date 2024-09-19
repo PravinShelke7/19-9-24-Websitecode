@@ -1,0 +1,310 @@
+﻿body 
+{
+    background-color:White;
+    font-family:Verdana;
+    font-size:10px;
+}
+
+
+#MasterContent
+{
+    width:850px;
+}
+
+#AlliedLogo
+{
+     margin-top:2px;
+    
+}
+
+.Module
+{
+    margin-top:2px;   
+    margin-left:1px; 
+    background-image:url(../../../../../../Allied%20ASP.NET/Images/Sustain1andSustain2.gif);
+    height:44px;
+    width:845px;
+    background-repeat:no-repeat;
+    text-align:center;
+    vertical-align:middle;
+}
+
+.AllModule
+{
+    margin-top:2px;   
+    margin-left:1px; 
+    background-image:url(../../../../../../Allied%20ASP.NET/Images/E1S1E2S2.gif);
+    height:44px;
+    width:845px;
+    background-repeat:no-repeat;
+    text-align:center;
+    vertical-align:middle;
+}
+
+
+
+
+.ImageMargin
+{
+    padding-left:80px;   
+   
+}
+
+
+.ContentPage
+{
+    margin-top:2px;
+    margin-left:1px; 
+    width:845px;
+    background-color:#F1F1F2;
+    
+}
+#ContentPagemargin
+{
+    margin-left: 20px;
+    text-align:left;
+}
+
+#PageSection1
+{
+
+    
+    background-color:#D3E7CB;
+    margin-left: 5px;
+}
+
+.PageHeading
+{
+     font-size:18px;
+     font-weight:bold
+}
+
+
+.PageSHeading
+{
+     font-size:12px;
+     font-weight:bold
+}
+
+.PageSSHeading
+{
+     font-size:10px;
+     font-weight:bold
+}
+
+.SmallTextBox
+{
+	font-family:Verdana;
+	font-size:10px;
+	height:15px;
+	width:50px;
+	background-color:#FEFCA1;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:2px;
+	margin-right:2px;
+	border-right: #7F9DB9 1px solid;
+	border-top: #7F9DB9 1px solid;
+	border-left: #7F9DB9 1px solid;
+	border-bottom: #7F9DB9 1px solid;
+	text-align:right;
+}
+.LongTextBox
+{
+	font-family:Verdana;
+	font-size:10px;
+	height:15px;
+	width:265px;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:2px;
+	margin-right:2px;
+	border-right:#7F9DB9 1px solid;
+	border-top: #7F9DB9 1px solid;
+	border-left: #7F9DB9 1px solid;
+	border-bottom: #7F9DB9 1px solid;
+
+}
+
+.NormalTextBox
+{
+	font-family:Verdana;
+	font-size:10px;
+	height:15px;
+	width:150px;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:2px;
+	margin-right:2px;
+	border-right:#7F9DB9 1px solid;
+	border-top: #7F9DB9 1px solid;
+	border-left: #7F9DB9 1px solid;
+	border-bottom: #7F9DB9 1px solid;
+
+}
+
+.SearchTextBox
+{
+    font-family: Verdana;
+    font-size: 10px;
+    height: 20px;
+    width: 400px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-right: #7F9DB9 1px solid;
+    border-top: #7F9DB9 1px solid;
+    border-left: #7F9DB9 1px solid;
+    border-bottom: #7F9DB9 1px solid;
+}
+
+.SmallDropDown
+{
+	font-family:Verdana;
+	font-size:10px;
+	height:20px;
+	width:124px;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:2px;
+	margin-right:2px;
+}
+
+.NormalDropDown
+{
+	font-family:Verdana;
+	font-size:10px;
+	height:20px;
+	width:160px;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:2px;
+	margin-right:2px;
+}
+
+.DropDown
+{
+	font-family:Verdana;
+	font-size:10px;
+	margin-top:2px;
+	margin-bottom:2px;
+	margin-left:2px;
+	margin-right:2px;
+}
+
+.TdHeadind
+{
+    background-color:#58595B;
+    color:White;
+}
+
+.AlterNateColor1
+{
+    background-color:#C0C9E7;
+}
+
+.AlterNateColor2
+{
+    background-color:#D0D1D3;
+}
+
+
+.ResultTd
+{
+    color:Red;
+    font-weight:bold
+}
+
+.divUpdateprogress
+{
+    left:600px;    
+    
+}
+
+.Error
+{
+    color:Red;
+    font-weight:bold;
+    font-style:italic;
+}
+
+
+.Comparison
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-top:30px;
+    margin-left:20px;
+    width:600px;
+  
+    
+}
+
+.SavedComp
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-left:20px;
+    width:450px;
+}
+
+.Button
+{
+	
+	font-family:Verdana;
+	font-size:13px;
+    color:blue;
+    margin-left:20px;
+   
+}
+
+.CaseComparison
+{
+	
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-left:20px;
+    width:450px;
+    height:168px;
+}
+
+.ResetButton
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:blue;
+      
+}
+
+.User
+{
+	font-family:Verdana;
+	font-size:13px;
+    color:black;
+    margin-left:20px;	
+	 width:150px;
+}
+
+#header
+{
+	font-family:Verdana;
+	font-size:18px;
+    color:black;
+    font-weight:bold;
+    margin-top:20px;  
+    
+    
+}
+
+.label
+{
+      margin-left:70px;
+      font-size:13px;
+      color:Blue;
+      font-family:Verdana;
+      font-weight:bold;
+}

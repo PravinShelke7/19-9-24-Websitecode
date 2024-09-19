@@ -1,0 +1,86 @@
+﻿<%@ Master Language="VB" CodeFile="S1Chart.master.vb" Inherits="Masters_S1Chart" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>   
+    <link href="../App_Themes/SkinFile/AlliedNew.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .S1CompModule
+        {
+            margin-top: 2px;
+            margin-left: 1px;
+            background-image: url( '../../Images/Sustain1Fulcrum.gif' );
+            height: 54px;
+            width: 845px;
+            background-repeat: no-repeat;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body style="margin-top:0px;">
+    <form id="form1" runat="server">
+     <div id="MasterContent">
+       
+     <%-- <div id="AlliedLogo">
+            <asp:Image ImageAlign="AbsMiddle" ID="imgLogo" ImageUrl="~/Images/AlliedLogo.gif" runat="server" />
+        </div> --%>       
+      
+      <div>
+        <table class="S1Module" cellpadding="0" id="S1Table" runat="server"  cellspacing="0"  style="border-collapse:collapse">
+            <tr>
+               <td style="padding-left:380px">
+                    <asp:HyperLink ID="hypPref" runat="server" NavigateUrl="~/Charts/ChartPreferences/ChartPreferencesS.aspx" Text="Preferences" CssClass="Link" Target="_blank"></asp:HyperLink>
+               </td>
+            </tr>
+        </table>
+       </div>
+            
+         <div id="error">
+            <asp:Label ID="lblError" runat="server" CssClass="Error"></asp:Label>
+          </div>
+    
+   
+   </div>
+    <table class="ContentPage" id="ContentPage" runat="server">
+            <tr>
+                <td>
+                     <div class="PageHeading" id="divMainHeading" runat="server" onmouseover="Tip('Material Assumption')" onmouseout="UnTip()" style="width:840px;">
+                         
+                     </div>                
+                </td>
+            </tr>
+             <tr style="height:20px">
+                <td>
+                    <asp:ContentPlaceHolder id="Sustain1ContentPlaceHolder" runat="server">      
+              
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr class="AlterNateColor3">
+                 <td class="PageSHeading" align="center">
+                    <asp:Label ID="lblTag" runat="Server" ></asp:Label>
+                </td>
+            </tr>
+        </table>
+        <div id="AlliedLogo">
+                      <table>
+            <tr>
+                <td class="PageSHeading" align="center">
+                    <table style="width: 845px; background-color: #edf0f4;">
+                        <tr>
+                            <td align="left">
+                                <asp:Image ID="imgFoot" runat="server" ImageUrl="~/Images/SavvyPackLogoB.gif" Height="45px" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+           
+            </table>
+        </div>
+    </form>
+</body>
+</html>
