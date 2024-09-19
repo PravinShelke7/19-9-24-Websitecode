@@ -12,7 +12,7 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
 
     Public CaseDes As String = String.Empty
 
-    'Ps change 19-9-24 
+    'Ps change 19-9-24  
 
 #Region "Get Set Variables"
     Dim _lErrorLble As Label
