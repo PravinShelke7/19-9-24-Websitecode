@@ -20,7 +20,8 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
     'Ps change 11.00 AM
     'ps change
     'dt new 2  
-    'ps change 12.00 AM
+    'ps change 12.00 AM 
+
 
     Dim _iCaseId As Integer
     Dim _iUserId As Integer
