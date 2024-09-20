@@ -12,10 +12,14 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
 
     Public CaseDes As String = String.Empty
 
-    'Ps change 19-9-24 
+    'Ps change 19-9-24
+   
+#Region "Get Set Variables"
+    Dim _lErrorLble As Label
     ' DT change 19-9-24 4:44PM
     'Ps change 11.00 AM
     'ps change
+   'dt new 2  
     Dim _iCaseId As Integer
     Dim _iUserId As Integer
     Dim _strUserRole As String
