@@ -14,7 +14,7 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
 
     'Ps change 19-9-24 
     ' DT change 19-9-24 4:44PM
-    'Ps change 6.00 PM
+    'Ps change 11.00 AM
     Dim _iCaseId As Integer
     Dim _iUserId As Integer
     Dim _strUserRole As String
