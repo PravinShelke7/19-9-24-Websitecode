@@ -14,6 +14,7 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
 
     'Ps change 19-9-24 
  ' DT change 19-9-24 4:44PM
+    'dt new 2  
 #Region "Get Set Variables"
     Dim _lErrorLble As Label
     Dim _iCaseId As Integer
