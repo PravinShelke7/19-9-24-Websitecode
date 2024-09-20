@@ -12,11 +12,14 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
 
     Public CaseDes As String = String.Empty
 
-    'Ps change 19-9-24 
- ' DT change 19-9-24 4:44PM
-    'dt new 2  
+    'Ps change 19-9-24
+   
 #Region "Get Set Variables"
     Dim _lErrorLble As Label
+    ' DT change 19-9-24 4:44PM
+    'Ps change 11.00 AM
+    'ps change
+   'dt new 2  
     Dim _iCaseId As Integer
     Dim _iUserId As Integer
     Dim _strUserRole As String
@@ -639,7 +642,7 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
         End Try
     End Sub
 
-   Protected Sub GetEquipmentInDetails(ByRef LinkMat As HyperLink, ByVal hid As HiddenField, ByVal EqId As Integer, ByVal dsEquip As DataSet)
+    Protected Sub GetEquipmentInDetails(ByRef LinkMat As HyperLink, ByVal hid As HiddenField, ByVal EqId As Integer, ByVal dsEquip As DataSet)
         Dim Ds As New DataSet
         Dim ObjGetdata As New E1GetData.Selectdata()
         Dim hidval As New HiddenField
@@ -817,7 +820,7 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
         Dim NGCP(29) As String
         Dim hidAssetDep(29) As String
         Dim ASSETNUM(29) As String
-       
+
         Dim i As New Integer
         Dim ObjUpIns As New E1UpInsData.UpdateInsert()
         Dim obj As New CryptoHelper
@@ -981,7 +984,7 @@ Partial Class Pages_Econ1_Assumptions_EquipmentIN
     End Sub
 
     Protected Sub btnUpdateBulk1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnUpdateBulk1.Click
-       Dim hidAssetId(29) As String
+        Dim hidAssetId(29) As String
         Dim ASSETP(29) As String
         Dim PARP(29) As String
         Dim ECP(29) As String
