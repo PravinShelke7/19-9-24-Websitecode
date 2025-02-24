@@ -24,10 +24,7 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-   - name: Sync S3
-  # You may pin to the exact commit or the version.
-  # uses: dmolik/sync-s3-action@f9a8704a05e590056387298056a8fea51fc886cd
-  uses: dmolik/sync-s3-action@v0.1.0
+ 
 
 on:
   push:
